@@ -164,6 +164,7 @@ public class GamePanel extends JPanel implements ActionListener {
     }
     repaint();
   }
+  //
 
   public class MyKeyAdapter extends KeyAdapter {
     @Override
