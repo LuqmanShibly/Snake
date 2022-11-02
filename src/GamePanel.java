@@ -1,34 +1,22 @@
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Point;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
-import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
-import javax.swing.BorderFactory;
 import javax.swing.InputMap;
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
-import javax.swing.SwingUtilities;
-import javax.swing.Timer;
 
 public class GamePanel extends JPanel{
   private static final long serialVersionUID = 1L;
   private final int MARGIN;
   private final int SCORE_AREA_HEIGHT;
   private final int UNIT_SIZE;
-  private final Random rand;
   private final SnakeModel model;
 
   public GamePanel(SnakeModel model) {
@@ -36,7 +24,6 @@ public class GamePanel extends JPanel{
     this.MARGIN = 10;
     this.UNIT_SIZE = 25;
     this.SCORE_AREA_HEIGHT = 36 + MARGIN;
-    this.rand= new Random();
     this.setBackground(Color.black);
 
     Dimension gameArea = model.getGameArea();
