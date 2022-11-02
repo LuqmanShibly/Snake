@@ -12,7 +12,7 @@ public class GamePanel extends JPanel implements ActionListener {
   private static final int SCREEN_HEIGHT = 600;
   private static final int UNIT_SIZE = 25;
   private final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT) / UNIT_SIZE;
-  private final int DELAY = 75;
+  public final int DELAY = 75;
   private final int x[] = new int[GAME_UNITS];
   private final int y[] = new int[GAME_UNITS];
   private int bodyParts = 6;
@@ -20,8 +20,8 @@ public class GamePanel extends JPanel implements ActionListener {
   private int appleX;
   private int appleY;
   private char direction = 'R';
-  private boolean running = false;
-  private Timer timer;
+  public boolean running = false;
+  public Timer timer;
   private Random rand; //
 
 
@@ -39,7 +39,7 @@ public class GamePanel extends JPanel implements ActionListener {
    */
   public void startGame() {
     newApple();
-    running  = true;
+    running = true;
     timer = new Timer(DELAY, this);
     timer.start();
   }
@@ -164,9 +164,11 @@ public class GamePanel extends JPanel implements ActionListener {
     }
     repaint();
   }
-  //
 
   public class MyKeyAdapter extends KeyAdapter {
+
+    private GamePanel game;
+
     @Override
     public void keyPressed(KeyEvent e) {
       switch(e.getKeyCode()) {
@@ -188,6 +190,14 @@ public class GamePanel extends JPanel implements ActionListener {
           case KeyEvent.VK_UP:
             if (direction != 'D')
               direction = 'U';
+            break;
+
+          case KeyEvent.VK_ENTER:
+            if (!running) {
+              Window win = SwingUtilities.getWindowAncestor((Component) e.getSource());
+      		  	win.dispose();
+              new GameFrame();
+            }
             break;
       }
     }
