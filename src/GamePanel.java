@@ -137,6 +137,7 @@ public class GamePanel extends JPanel implements ActionListener {
     if (y[0] > SCREEN_HEIGHT)
       this.running = false;
 
+    //
     if (!this.running)
       this.timer.stop();
   }
