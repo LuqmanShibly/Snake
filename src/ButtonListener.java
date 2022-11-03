@@ -12,7 +12,7 @@ public class ButtonListener implements ActionListener {
 
   public ButtonListener(SnakeGame view, SnakeModel model) {
     this.model = model;
-    this.delay = 750;
+    this.delay = 75;
     this.timer = new Timer(delay, new TimerListener(view, model));
   }
 

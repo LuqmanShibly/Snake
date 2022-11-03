@@ -44,7 +44,7 @@ public class SnakeModel {
     }
 
     List<Point> cells = snake.getCells();
-    for (int i = 0; i < cells.size() - 1; i++) {
+    for (int i = 1; i < cells.size(); i++) {
       Point cell = cells.get(i);
       if (head.x == cell.x && head.y == cell.y) {
         gameOver = true;
